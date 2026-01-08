@@ -10,13 +10,13 @@ pipeline {
 
     stage('Build') {
       steps {
-        sh 'mvn clean package -DskipTests'
+        sh './mvnw clean package -DskipTests'
       }
     }
 
     stage('Test') {
       steps {
-        sh 'mvn test'
+        sh './mvnw test'
       }
     }
 
@@ -47,10 +47,7 @@ pipeline {
       steps {
         sh '''
           docker rm -f myapp || true
-          docker run -d \
-            --name myapp \
-            -p 8081:8080 \
-            $IMAGE_NAME:latest
+          docker run -d -p 8081:8080 --name myapp $IMAGE_NAME:latest
         '''
       }
     }
