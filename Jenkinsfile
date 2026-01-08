@@ -10,7 +10,10 @@ pipeline {
 
     stage('Build') {
       steps {
-        sh './mvnw clean package -DskipTests'
+        sh '''
+          chmod +x mvnw
+          ./mvnw clean package -DskipTests
+        '''
       }
     }
 
@@ -46,8 +49,8 @@ pipeline {
     stage('Deploy') {
       steps {
         sh '''
-          docker rm -f myapp || true
-          docker run -d -p 8081:8080 --name myapp $IMAGE_NAME:latest
+          docker rm -f springboot-app || true
+          docker run -d -p 8081:8080 --name springboot-app $IMAGE_NAME:latest
         '''
       }
     }
