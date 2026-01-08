@@ -6,7 +6,7 @@ pipeline {
       steps {
         git branch: 'dev',
             url: 'https://github.com/kisengeking/MyFirstGitProject.git',
-            credentialsId: 'github-token'
+            credentialsId: 'github-user'
       }
     }
 
