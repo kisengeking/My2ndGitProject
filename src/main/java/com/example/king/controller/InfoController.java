@@ -24,7 +24,7 @@ public class InfoController {
     }
 
 
-    @GetMapping({"/", "/home", "/info"})
+    @GetMapping({"/home", "/info"})
     public ResponseEntity<Object> getServerAndDatabaseInfo() {
         String serverIp = getServerIp();
         String hostName = getHostName();
