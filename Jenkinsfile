@@ -50,7 +50,7 @@ pipeline {
       steps {
         sh '''
           docker rm -f springboot-app || true
-          docker run -d -p 8081:8080 --name springboot-app $IMAGE_NAME:latest
+          docker run -d -p 8081:8090 --name springboot-app $IMAGE_NAME:latest
         '''
       }
     }
