@@ -4,7 +4,7 @@ pipeline {
   stages {
     stage('Checkout') {
       steps {
-        git branch: 'main',
+        git branch: 'dev',
             url: 'https://github.com/kisengeking/MyFirstGitProject.git',
             credentialsId: 'github-token'
       }
