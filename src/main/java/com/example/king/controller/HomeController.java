@@ -1,9 +1,10 @@
 package com.example.king;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
 
 @RestController
+@RequestMapping("/check")
 public class HomeController {
 
     @GetMapping("/")
