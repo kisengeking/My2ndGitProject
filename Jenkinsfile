@@ -2,13 +2,6 @@ pipeline {
   agent any
 
   stages {
-    stage('Checkout') {
-      steps {
-        git branch: 'dev',
-            url: 'https://github.com/kisengeking/MyFirstGitProject.git',
-            credentialsId: 'github-user'
-      }
-    }
 
     stage('Build') {
       steps {
@@ -20,6 +13,16 @@ pipeline {
       steps {
         echo 'Running tests...'
       }
+    }
+
+  }
+
+  post {
+    success {
+      echo '✅ Build succeeded'
+    }
+    failure {
+      echo '❌ Build failed'
     }
   }
 }
