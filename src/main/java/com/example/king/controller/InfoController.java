@@ -1,4 +1,5 @@
-import org.springframework.beans.factory.annotation.Value;
+package com.example.king.controller;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,7 +15,6 @@ import java.util.Enumeration;
 import java.util.HashMap;
 
 @RestController
-@RequestMapping("/api")
 public class InfoController {
 
     private final Instant startTime;
@@ -25,7 +25,7 @@ public class InfoController {
     }
 
 
-    @GetMapping({"/home", "/info"})
+    @GetMapping({"/check", "/info"})
     public ResponseEntity<Object> getServerAndDatabaseInfo() {
         String serverIp = getServerIp();
         String hostName = getHostName();
